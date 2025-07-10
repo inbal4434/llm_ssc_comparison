@@ -1,0 +1,452 @@
+{
+  "AWS DataSync": {
+    "service_name": "AWS DataSync",
+    "discovered_ibus": {
+      "AWS DataSync Service settings (static)": {
+        "type": "static_section",
+        "section_header": "Service settings",
+        "elements": [
+          {
+            "type": "dropdown",
+            "label": "Choose a DataSync Task Mode",
+            "id": "formField132-1751987612900-3174",
+            "position": {
+              "x": 60,
+              "y": 503,
+              "width": 1206,
+              "height": 32,
+              "top": 503,
+              "right": 1266,
+              "bottom": 535,
+              "left": 60
+            }
+          },
+          {
+            "type": "number",
+            "label": "Total data copied by AWS DataSync per month Value",
+            "value": "",
+            "id": "formField141-1751987612901-9749",
+            "position": {
+              "x": 60,
+              "y": 591,
+              "width": 593,
+              "height": 32,
+              "top": 591,
+              "right": 653,
+              "bottom": 623,
+              "left": 60
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Unit",
+            "id": "formField142-1751987612902-4481",
+            "position": {
+              "x": 673,
+              "y": 591,
+              "width": 593,
+              "height": 32,
+              "top": 591,
+              "right": 1266,
+              "bottom": 623,
+              "left": 673
+            }
+          }
+        ],
+        "element_count": 3
+      }
+    },
+    "toggle_states": {},
+    "ibu_mapping": [
+      {
+        "service": "AWS DataSync",
+        "ibu": "AWS DataSync Service settings",
+        "attribute": "Choose a  Task Mode"
+      },
+      {
+        "service": "AWS DataSync",
+        "ibu": "AWS DataSync Service settings",
+        "attribute": "Total data copied by AWS  per month Value"
+      },
+      {
+        "service": "AWS DataSync",
+        "ibu": "AWS DataSync Service settings",
+        "attribute": "Choose Unit"
+      }
+    ],
+    "timestamp": 1751987616.076047
+  },
+  "Amazon S3": {
+    "service_name": "Amazon Simple Storage Service (S3)",
+    "discovered_ibus": {
+      "S3 Standard feature (static)": {
+        "type": "static_section",
+        "section_header": "S3 Standard feature",
+        "elements": [
+          {
+            "type": "number",
+            "label": "S3 Standard storage Value",
+            "value": "",
+            "id": "formField698-1751987618664-559",
+            "position": {
+              "x": 60,
+              "y": 807,
+              "width": 593,
+              "height": 32,
+              "top": 807,
+              "right": 653,
+              "bottom": 839,
+              "left": 60
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Unit",
+            "id": "formField699-1751987618664-6640",
+            "position": {
+              "x": 673,
+              "y": 807,
+              "width": 593,
+              "height": 32,
+              "top": 807,
+              "right": 1266,
+              "bottom": 839,
+              "left": 673
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "How will data be moved into S3 Standard?",
+            "id": "formField732-1751987618701-319",
+            "position": {
+              "x": 60,
+              "y": 917,
+              "width": 1206,
+              "height": 32,
+              "top": 917,
+              "right": 1266,
+              "bottom": 949,
+              "left": 60
+            }
+          },
+          {
+            "type": "text",
+            "label": "PUT, COPY, POST, LIST requests to S3 Standard Enter amount of requests",
+            "value": "",
+            "id": "formField708-1751987618665-2686",
+            "position": {
+              "x": 60,
+              "y": 1011,
+              "width": 1206,
+              "height": 32,
+              "top": 1011,
+              "right": 1266,
+              "bottom": 1043,
+              "left": 60
+            }
+          }
+        ],
+        "element_count": 4
+      },
+      "Amazon Simple Storage Service (S3) Data Transfer (static)": {
+        "type": "static_section",
+        "section_header": "Data Transfer",
+        "elements": [
+          {
+            "type": "dropdown",
+            "label": "Data transfer from",
+            "id": "formField321-1751987616239-4929",
+            "position": {
+              "x": 60,
+              "y": 1781,
+              "width": 209.875,
+              "height": 32,
+              "top": 1781,
+              "right": 269.875,
+              "bottom": 1813,
+              "left": 60
+            }
+          },
+          {
+            "type": "number",
+            "label": "Enter Amount Enter amount",
+            "value": "",
+            "id": "formField330-1751987616239-5375",
+            "position": {
+              "x": 289.875,
+              "y": 1781,
+              "width": 209.875,
+              "height": 32,
+              "top": 1781,
+              "right": 499.75,
+              "bottom": 1813,
+              "left": 289.875
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Data amount",
+            "id": "formField331-1751987616239-4877",
+            "position": {
+              "x": 519.75,
+              "y": 1781,
+              "width": 209.875,
+              "height": 32,
+              "top": 1781,
+              "right": 729.625,
+              "bottom": 1813,
+              "left": 519.75
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Data transfer to",
+            "id": "formField345-1751987616241-8893",
+            "position": {
+              "x": 60,
+              "y": 1983,
+              "width": 209.875,
+              "height": 32,
+              "top": 1983,
+              "right": 269.875,
+              "bottom": 2015,
+              "left": 60
+            }
+          },
+          {
+            "type": "number",
+            "label": "Enter Amount Enter amount",
+            "value": "",
+            "id": "formField354-1751987616241-3430",
+            "position": {
+              "x": 289.875,
+              "y": 1983,
+              "width": 209.875,
+              "height": 32,
+              "top": 1983,
+              "right": 499.75,
+              "bottom": 2015,
+              "left": 289.875
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Data amount",
+            "id": "formField355-1751987616241-48",
+            "position": {
+              "x": 519.75,
+              "y": 1983,
+              "width": 209.875,
+              "height": 32,
+              "top": 1983,
+              "right": 729.625,
+              "bottom": 2015,
+              "left": 519.75
+            }
+          }
+        ],
+        "element_count": 6
+      }
+    },
+    "toggle_states": {},
+    "ibu_mapping": [
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "S3 Standard feature",
+        "attribute": "S3 Standard storage Value"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "S3 Standard feature",
+        "attribute": "Choose Unit"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "S3 Standard feature",
+        "attribute": "Choose How will data be moved into S3 Standard?"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "S3 Standard feature",
+        "attribute": "PUT, COPY, POST, LIST requests to S3 Standard Enter amount of requests"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Choose Data transfer from"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Enter Amount Enter amount"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Choose Data amount"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Choose Data transfer to"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Enter Amount Enter amount"
+      },
+      {
+        "service": "Amazon Simple Storage Service (S3)",
+        "ibu": "Amazon Simple Storage Service (S3) Data Transfer",
+        "attribute": "Choose Data amount"
+      }
+    ],
+    "timestamp": 1751987621.508806
+  },
+  "AWS Lambda": {
+    "service_name": "AWS Lambda",
+    "discovered_ibus": {
+      "AWS Lambda Service settings (static)": {
+        "type": "static_section",
+        "section_header": "Service settings",
+        "elements": [
+          {
+            "type": "dropdown",
+            "label": "Architecture",
+            "id": "formField1177-1751987621775-9390",
+            "position": {
+              "x": 60,
+              "y": 529,
+              "width": 1206,
+              "height": 32,
+              "top": 529,
+              "right": 1266,
+              "bottom": 561,
+              "left": 60
+            }
+          },
+          {
+            "type": "number",
+            "label": "Number of requests Value",
+            "value": "",
+            "id": "formField1000-1751987621733-7416",
+            "position": {
+              "x": 60,
+              "y": 617,
+              "width": 593,
+              "height": 32,
+              "top": 617,
+              "right": 653,
+              "bottom": 649,
+              "left": 60
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Unit",
+            "id": "formField1001-1751987621733-7550",
+            "position": {
+              "x": 673,
+              "y": 617,
+              "width": 593,
+              "height": 32,
+              "top": 617,
+              "right": 1266,
+              "bottom": 649,
+              "left": 673
+            }
+          },
+          {
+            "type": "text",
+            "label": "Duration of each request (in ms) Enter duration in ms",
+            "value": "",
+            "id": "formField1010-1751987621734-5313",
+            "position": {
+              "x": 60,
+              "y": 711,
+              "width": 1206,
+              "height": 32,
+              "top": 711,
+              "right": 1266,
+              "bottom": 743,
+              "left": 60
+            }
+          },
+          {
+            "type": "number",
+            "label": "Amount of memory allocated Value",
+            "value": "",
+            "id": "formField1012-1751987621734-3141",
+            "position": {
+              "x": 60,
+              "y": 841,
+              "width": 593,
+              "height": 32,
+              "top": 841,
+              "right": 653,
+              "bottom": 873,
+              "left": 60
+            }
+          },
+          {
+            "type": "dropdown",
+            "label": "Unit",
+            "id": "formField1013-1751987621734-155",
+            "position": {
+              "x": 673,
+              "y": 841,
+              "width": 593,
+              "height": 32,
+              "top": 841,
+              "right": 1266,
+              "bottom": 873,
+              "left": 673
+            }
+          }
+        ],
+        "element_count": 6
+      }
+    },
+    "toggle_states": {},
+    "ibu_mapping": [
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Choose Architecture"
+      },
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Number of requests Value"
+      },
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Choose Unit"
+      },
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Duration of each request (in ms) Enter duration in ms"
+      },
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Amount of memory allocated Value"
+      },
+      {
+        "service": "AWS Lambda",
+        "ibu": "AWS Lambda Service settings",
+        "attribute": "Choose Unit"
+      }
+    ],
+    "timestamp": 1751987625.548133
+  },
+  "Amazon RDS": {
+    "service_name": "Add service - AWS Pricing Calculator",
+    "discovered_ibus": {},
+    "toggle_states": {},
+    "ibu_mapping": [],
+    "timestamp": 1751987638.459729
+  }
+}

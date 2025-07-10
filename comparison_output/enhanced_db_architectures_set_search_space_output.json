@@ -1,0 +1,2963 @@
+{
+  "architectures": [
+    {
+      "architecture_id": "DataSync-EC2-Arch-1",
+      "components_search_space": [
+        {
+          "component_id": "ec2-1",
+          "service_search_space": {
+            "service_codename": "AmazonEC2",
+            "service_select_attributes": [
+              "RateCode",
+              "SKU",
+              "Region Code",
+              "Tenancy",
+              "Instance Family",
+              "generation",
+              "Memory",
+              "vCPU",
+              "Operating System",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonEC2",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": "list",
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Instance Family",
+                    "attribute_values": "Memory optimized",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "vCPU",
+                    "attribute_values": 238,
+                    "attribute_unit": "int",
+                    "attribute_constraint_expr": ">="
+                  },
+                  {
+                    "attribute_codename": "MarketOption",
+                    "attribute_values": "OnDemand",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Linux",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Hrs",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "generation",
+                    "sort_direction": "desc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "operation",
+              "Task Type",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "DataTransfer",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "AWS DataSync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Task Type",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "datasync_triggered_ecs_processing_architecture-2",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Location",
+              "Product Family",
+              "Operating System",
+              "CPU Architecture",
+              "CPUType",
+              "MemoryType",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECSCpu",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "vCPU-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPU Architecture",
+                    "attribute_values": [
+                      "ARM",
+                      "x86"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSMemory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSWindowsLicense",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "perCPU OS License Fee",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "operation",
+              "PricePerUnit",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "AWS DataSync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "data-sync-and-processing-architecture-3",
+      "components_search_space": [
+        {
+          "component_id": "ec2-1",
+          "service_search_space": {
+            "service_codename": "AmazonEC2",
+            "service_select_attributes": [
+              "RateCode",
+              "SKU",
+              "Region Code",
+              "Tenancy",
+              "Instance Family",
+              "generation",
+              "Memory",
+              "vCPU",
+              "Operating System",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonEC2",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": "list",
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Instance Family",
+                    "attribute_values": "Memory optimized",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "vCPU",
+                    "attribute_values": 238,
+                    "attribute_unit": "int",
+                    "attribute_constraint_expr": ">="
+                  },
+                  {
+                    "attribute_codename": "MarketOption",
+                    "attribute_values": "OnDemand",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Linux",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Hrs",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "generation",
+                    "sort_direction": "desc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "datasync-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "operation",
+              "Unit",
+              "Task Mode"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "GB",
+                      "GB "
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Task Mode",
+                    "attribute_values": "Enhanced",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "ecs_and_datasync_file_processing_architecture-4",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "operation",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECS Fargate vCPU",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "vCPU-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "AddExternalInstance",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECS Fargate Memory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "AddExternalInstance",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "Task Mode",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "GB",
+                      "GB "
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Task Mode",
+                    "attribute_values": [
+                      "Sync",
+                      "Enhanced"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "lambda-to-ecs-processing-architecture-5",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Location",
+              "Operating System",
+              "Tenancy",
+              "Product Family",
+              "CPUType",
+              "MemoryType",
+              "PricePerUnit",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonECS",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "lambda-1",
+          "service_search_space": {
+            "service_codename": "AWSLambda",
+            "service_select_attributes": [
+              "Region Code",
+              "Group",
+              "Unit",
+              "PricePerUnit",
+              "StartingRange",
+              "EndingRange",
+              "Product Family"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSLambda",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Serverless",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": [
+                      "AWS-Lambda-Duration",
+                      "AWS-Lambda-Requests"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "GB-Seconds",
+                      "Requests"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "Group",
+                    "sort_direction": "asc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "ecs-processing-from-s3-storage-6",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Region Code",
+              "Operating System",
+              "Tenancy",
+              "CPU Architecture",
+              "CPUType",
+              "MemoryType",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "Operating_System",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "%OS License Fee",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "Compute_and_Memory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "%OS License Fee",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "NOT LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "s3-1",
+          "service_search_space": {
+            "service_codename": "AmazonS3",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Storage Class",
+              "operation",
+              "Transfer Type",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "S3Storage",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Storage",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Storage Class",
+                    "attribute_values": "General Purpose",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "S3Requests",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "API Request",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": [
+                      "PutObject",
+                      "PostObject",
+                      "CopyObject",
+                      "GetObject"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "S3DataTransfer",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Data Transfer",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "ecs_and_lambda_integration_architecture-7",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Region Code",
+              "Operating System",
+              "CPU Architecture",
+              "CPUType",
+              "Tenancy",
+              "PricePerUnit",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonECS",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "lambda-1",
+          "service_search_space": {
+            "service_codename": "AWSLambda",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Group",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSLambda",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Serverless",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": [
+                      "AWS-Lambda-Duration-ARM",
+                      "AWS-Lambda-Requests-ARM"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "Requests",
+                      "GB-Seconds",
+                      "Lambda-GB-Second"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "None-8",
+      "components_search_space": [
+        {
+          "component_id": "ec2-1",
+          "service_search_space": {
+            "service_codename": "AmazonEC2",
+            "service_select_attributes": [
+              "RateCode",
+              "SKU",
+              "Region Code",
+              "Tenancy",
+              "Instance Family",
+              "generation",
+              "Memory",
+              "vCPU",
+              "Operating System",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonEC2",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": "list",
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Instance Family",
+                    "attribute_values": "Memory optimized",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "vCPU",
+                    "attribute_values": 238,
+                    "attribute_unit": "int",
+                    "attribute_constraint_expr": ">="
+                  },
+                  {
+                    "attribute_codename": "MarketOption",
+                    "attribute_values": "OnDemand",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Linux",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Hrs",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "generation",
+                    "sort_direction": "desc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "transfer-1",
+          "service_search_space": {
+            "service_codename": "AWSTransfer",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Endpoint",
+              "operation",
+              "Data"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "Endpoint",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Endpoint",
+                    "attribute_values": "%-Hours%",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "DataUpload",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": [
+                      "SFTP:S3",
+                      "SFTP:EFS",
+                      "FTP:S3",
+                      "FTP:EFS",
+                      "FTPS:S3",
+                      "FTPS:EFS"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Data",
+                    "attribute_values": "%-Upload-Bytes",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "DataDownload",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": [
+                      "SFTP:S3",
+                      "SFTP:EFS",
+                      "FTP:S3",
+                      "FTP:EFS",
+                      "FTPS:S3",
+                      "FTPS:EFS"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Data",
+                    "attribute_values": "%-Download-Bytes",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "datasynctriggeredec2processingarchitecture-9",
+      "components_search_space": [
+        {
+          "component_id": "ec2-1",
+          "service_search_space": {
+            "service_codename": "AmazonEC2",
+            "service_select_attributes": [
+              "RateCode",
+              "SKU",
+              "Region Code",
+              "Tenancy",
+              "Instance Family",
+              "generation",
+              "Memory",
+              "vCPU",
+              "Operating System",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonEC2",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": "list",
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Instance Family",
+                    "attribute_values": "Memory optimized",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "vCPU",
+                    "attribute_values": 119,
+                    "attribute_unit": "int",
+                    "attribute_constraint_expr": ">="
+                  },
+                  {
+                    "attribute_codename": "MarketOption",
+                    "attribute_values": "OnDemand",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Linux",
+                    "attribute_unit": "str",
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Hrs",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "generation",
+                    "sort_direction": "desc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Location",
+              "Product Family",
+              "operation",
+              "Task Mode",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": [
+                      "Israel (Tel Aviv)"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "AWS DataSync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Task Mode",
+                    "attribute_values": "Enhanced",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "GB",
+                      "GB "
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ssm-1",
+          "service_search_space": {
+            "service_codename": "AWSSystemsManager",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Parameter type",
+              "steps",
+              "Ops Items",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "SSMParameterStore",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Parameter type",
+                    "attribute_values": [
+                      "advanced or standard",
+                      "True"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "SSMAutomation",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "steps",
+                    "attribute_values": [
+                      "Basic",
+                      "Duration"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "SSMOpsCenter",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Ops Items",
+                    "attribute_values": "True",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "SSMApiRequests",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "API Request",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "ecs_architecture_with_storage_gateway-10",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "regionCode",
+              "Operating System",
+              "Tenancy",
+              "CPUType",
+              "MemoryType",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECSFargateCPU",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "regionCode",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "vCPU-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSFargateMemory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "regionCode",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "sgw-1",
+          "service_search_space": {
+            "service_codename": "AWSStorageGateway",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Storage Class",
+              "Fee Code",
+              "Unit",
+              "Location"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "StorageGateway-Instance",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": [
+                      "StorageGateway-Instance"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "StorageGateway-Storage",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": [
+                      "StorageGateway-Storage"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Storage Class",
+                    "attribute_values": [
+                      "Standard"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "StorageGateway-Fee",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": [
+                      "StorageGateway-Fee"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Fee Code",
+                    "attribute_values": [
+                      "StorageGateway-UploadedBytes"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "eks-microservices-lambda-trigger-11",
+      "components_search_space": [
+        {
+          "component_id": "aeks-1",
+          "service_search_space": {
+            "service_codename": "AmazonEKS",
+            "service_select_attributes": [
+              "Location",
+              "InstanceType",
+              "CPUType",
+              "MemoryType",
+              "Unit",
+              "TierType",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "EKSCluster",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "TierType",
+                    "attribute_values": "HAStandard",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "EKSNode",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "InstanceType",
+                    "attribute_values": [
+                      "m5.%",
+                      "m6i.%",
+                      "c5.%",
+                      "c6i.%"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "perCPU",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "MemoryType",
+                    "attribute_values": "perGB",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "vCPU-Hours",
+                      "GB-Hours"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  },
+                  {
+                    "attribute_codename": "InstanceType",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "lambda-1",
+          "service_search_space": {
+            "service_codename": "AWSLambda",
+            "service_select_attributes": [
+              "Region Code",
+              "Group",
+              "Product Family",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "LambdaRequests",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "%Requests-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Requests",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "LambdaDuration",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "%Duration-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Seconds",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "LambdaEphemeralStorage",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "%Storage-Duration-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Seconds",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "ecs-processing-with-datasync-trigger-12",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Location",
+              "Tenancy",
+              "CPUType",
+              "MemoryType",
+              "CPU Architecture",
+              "Operating System"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECSCPU",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "perCPU",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPU Architecture",
+                    "attribute_values": "ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSMEMORY",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "MemoryType",
+                    "attribute_values": "perGB",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "CPU Architecture",
+                    "attribute_values": "ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "Task Type",
+              "operation",
+              "Task Mode",
+              "PricePerUnit",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Task Type",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Task Mode",
+                    "attribute_values": "Enhanced",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "eks-based-processing-with-direct-connect-13",
+      "components_search_space": [
+        {
+          "component_id": "eks-1",
+          "service_search_space": {
+            "service_codename": "AmazonEKS",
+            "service_select_attributes": [
+              "Region Code",
+              "operation",
+              "InstanceType",
+              "Tenancy",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "EKSCluster",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "CreateOperation",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "EKSWorkerNodes",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "EKSAutoUsage",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "InstanceType",
+                    "attribute_values": "c%",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "dc-1",
+          "service_search_space": {
+            "service_codename": "AWSDirectConnect",
+            "service_select_attributes": [
+              "Location",
+              "Product Family",
+              "Port Speed",
+              "From Location",
+              "To Location",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "DirectConnectPort",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Direct Connect",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Port Speed",
+                    "attribute_values": "1G",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": ">="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "%Hour%",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "LIKE"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  },
+                  {
+                    "attribute_codename": "Port Speed",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "DirectConnectDataTransfer",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Data Transfer",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "From Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "datasynctriggeredecsprocessing-14",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Region Code",
+              "Operating System",
+              "Unit",
+              "Tenancy",
+              "CPU Architecture",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECS-vCPU",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "vCPU-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECS-Memory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECS-OSLicense",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Location",
+              "Task Type",
+              "Task Mode",
+              "Unit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Task Type",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Task Mode",
+                    "attribute_values": "Enhanced",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "datasync-triggered-ecs-processing-15",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "regionCode",
+              "Operating System",
+              "Product Family",
+              "CPUType",
+              "MemoryType",
+              "Tenancy"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AmazonECS",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "regionCode",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": [
+                      "Compute",
+                      "Compute Metering"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "CPUType",
+                    "attribute_values": "perCPU",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "MemoryType",
+                    "attribute_values": "perGB",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ds-1",
+          "service_search_space": {
+            "service_codename": "AWSDataSync",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "operation",
+              "Task Mode",
+              "Task Type",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSDataSync",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "AWS DataSync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "Sync",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": [
+                      "GB",
+                      "GB "
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "architecture_id": "event-driven-ecs-and-lambda-architecture-16",
+      "components_search_space": [
+        {
+          "component_id": "ecs-1",
+          "service_search_space": {
+            "service_codename": "AmazonECS",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Unit",
+              "Operating System",
+              "Tenancy",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "ECSCpu",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "vCPU-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSMemory",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Tenancy",
+                    "attribute_values": "Shared",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "ECSOSLicense",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": [
+                      "il-central-1"
+                    ],
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "IN"
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "Compute",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Operating System",
+                    "attribute_values": "Windows",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "hours",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": "asc"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "ev-1",
+          "service_search_space": {
+            "service_codename": "AWSEvents",
+            "service_select_attributes": [
+              "Region Code",
+              "Product Family",
+              "Event Type",
+              "operation"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "AWSEvents",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Region Code",
+                    "attribute_values": "il-central-1",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Product Family",
+                    "attribute_values": "EventBridge",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Event Type",
+                    "attribute_values": "Custom Event",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "operation",
+                    "attribute_values": "PutEvents",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "component_id": "lambda-1",
+          "service_search_space": {
+            "service_codename": "AWSLambda",
+            "service_select_attributes": [
+              "Location",
+              "Group",
+              "Unit",
+              "PricePerUnit"
+            ],
+            "service_components_search_spaces": [
+              {
+                "service_component_codename": "LambdaRequests",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "AWS-Lambda-Requests-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Requests",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "LambdaDuration",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "AWS-Lambda-Duration-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "Lambda-GB-Second",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              },
+              {
+                "service_component_codename": "LambdaStorage",
+                "attributes_search_space": [
+                  {
+                    "attribute_codename": "Location",
+                    "attribute_values": "Israel (Tel Aviv)",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Group",
+                    "attribute_values": "AWS-Lambda-Storage-Duration-ARM",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  },
+                  {
+                    "attribute_codename": "Unit",
+                    "attribute_values": "GB-Seconds",
+                    "attribute_unit": null,
+                    "attribute_constraint_expr": "="
+                  }
+                ],
+                "number_of_instances": 1,
+                "service_component_sort": [
+                  {
+                    "attribute_codename": "PricePerUnit",
+                    "sort_direction": "asc",
+                    "direction": null
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,270 @@
+service,ibu,attribute
+AWS DataSync,Service settings,Choose a DataSync Task Mode
+AWS DataSync,Service settings,Unit
+AWS DataSync,Service settings,Total data copied by AWS DataSync per month
+AWS Direct Connect,Service settings,Number of ports
+AWS Direct Connect,Service settings,Location
+AWS Direct Connect,Service settings,Port type
+AWS Direct Connect,Service settings,Port capacity
+AWS Direct Connect,Service settings,Unit
+AWS Direct Connect,Service settings,Hours used
+AWS Direct Connect,Data transfer,Data transfer out
+AWS Direct Connect,Data transfer,Data transfer in (free)
+AWS Lambda,Service settings,Architecture
+AWS Lambda,Service settings,Number of requests
+AWS Lambda,Service settings,Unit
+AWS Lambda,Service settings,Duration of each request (in ms)
+AWS Lambda,Service settings,"Amount of memory allocated value
+"
+AWS Lambda,Service settings,Unit
+AWS Lambda,Service settings,"Amount of ephemeral storage allocated value
+"
+AWS Lambda,Service settings,Unit
+AWS Lambda,Provisioned Concurrency,Architecture
+AWS Lambda,Provisioned Concurrency,Concurrency
+AWS Lambda,Provisioned Concurrency,Time for which Provisioned Concurrency is enabled value
+AWS Lambda,Provisioned Concurrency,Unit
+AWS Lambda,Provisioned Concurrency,Number of requests for Provisioned Concurrency value
+AWS Lambda,Provisioned Concurrency,Unit
+AWS Lambda,Provisioned Concurrency,Duration of each provisioned request (in ms)
+AWS Lambda,Provisioned Concurrency,"Amount of memory allocated value
+"
+AWS Lambda,Provisioned Concurrency,Unit
+AWS Lambda,Lambda@Edge,"Number of requests
+"
+AWS Lambda,Lambda@Edge,Unit
+AWS Lambda,Lambda@Edge,Duration of each request (in ms)
+AWS Lambda,Lambda@Edge,Amount of memory allocated Value
+AWS Lambda,Lambda@Edge,Amount of memory allocated Unit
+AWS Lambda,Lambda HTTP Response Streaming,Invoke Mode
+AWS Storage Gateway,Amazon S3 File Gateway pricing,Data written to AWS file storage by your gateway
+AWS Storage Gateway,Amazon S3 File Gateway pricing,Unit
+AWS Storage Gateway,Amazon FSx File Gateway,Hours used by your gateway per month
+AWS Storage Gateway,Volume Gateaway Service settings,Data written to AWS storage by your gateway
+AWS Storage Gateway,Volume Gateaway Service settings,Unit
+AWS Storage Gateway,Volume Gateaway Service settings,Volume storage
+AWS Storage Gateway,Volume Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Data written to AWS tape storage by your gateway
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of data stored in virtual tape library (Amazon S3)
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of virtual tape data (archived in S3 Glacier)
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of virtual tape data (archived in S3 Glacier Deep Archive)
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of virtual tape data retrieved from S3 Glacier
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of virtual tape data retrieved from S3 Glacier Deep Archive
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of tape data moved from S3 Glacier to S3 Glacier Deep Archive
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of tape data deleted early (within 90 days) from S3 Glacier
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Tape Gateaway Service settings,Amount of tape data deleted early (within 180 days) from S3 Glacier Deep Archive
+AWS Storage Gateway,Tape Gateaway Service settings,Unit
+AWS Storage Gateway,Data transfer,Inbound Data Transfer - Data transfer from
+AWS Storage Gateway,Data transfer,Inbound Data Transfer - Enter Amount
+AWS Storage Gateway,Data transfer,Inbound Data Transfer - Data amount
+AWS Storage Gateway,Data transfer,Intra-Region Data Transfer - Enter Amount
+AWS Storage Gateway,Data transfer,Intra-Region Data Transfer - Data amount
+AWS Storage Gateway,Data transfer,Outbound Data Transfer - Data transfer to
+AWS Storage Gateway,Data transfer,Outbound Data Transfer - Enter Amount
+AWS Storage Gateway,Data transfer,Outbound Data Transfer - Data amount
+AWS Systems Manager,OpsCenter,Value
+AWS Systems Manager,OpsCenter,Unit
+AWS Systems Manager,OpsCenter,"Frequency of Get, Describe, Update, and GetOpsSummary API requests"
+AWS Systems Manager,OpsCenter,Unit
+AWS Systems Manager,AWS AppConfig,Targets
+AWS Systems Manager,AWS AppConfig,Application configurations
+AWS Systems Manager,AWS AppConfig,Frequency of configuration requests
+AWS Systems Manager,AWS AppConfig,Unit
+AWS Systems Manager,AWS AppConfig,Frequency of configurations received
+AWS Systems Manager,AWS AppConfig,Unit
+AWS Systems Manager,Parameter Store,Standard parameters
+AWS Systems Manager,Parameter Store,Advanced parameters
+AWS Systems Manager,Parameter Store,Frequency of API interactions per parameter Value
+AWS Systems Manager,Parameter Store,Frequency of API interactions per parameter Unit
+AWS Systems Manager,Standard Instance Tier,
+AWS Systems Manager,Advanced Instance Tier,Number of on-premises instances
+AWS Systems Manager,Advanced Instance Tier,Percentage of the month when instances are registered and running
+AWS Systems Manager,Distributor,Non-AWS/third-party software packages stored
+AWS Systems Manager,Distributor,Average size of non-AWS/third-party software packages
+AWS Systems Manager,Distributor,Unit
+AWS Systems Manager,Distributor,Frequency of Get/Describe API requests for non-AWS/third-party software packages
+AWS Systems Manager,Distributor,Unit
+AWS Systems Manager,Distributor,Frequency of out of region or on-premises installs Value
+AWS Systems Manager,Distributor,Frequency of out of region or on-premises installs Unit
+AWS Systems Manager,Automation,Frequency of steps
+AWS Systems Manager,Automation,Unit
+AWS Systems Manager,Automation,aws:executeScript steps
+AWS Systems Manager,Automation,Average aws:executeScript step duration Value
+AWS Systems Manager,Automation,Average aws:executeScript step duration Unit
+AWS Systems Manager,Automation,Playbook attachments stored
+AWS Systems Manager,Automation,Average size of playbook attachments
+AWS Systems Manager,Automation,Unit
+AWS Systems Manager,Just-in-time node access,Number of System Manager managed node hours
+AWS Systems Manager,Incident Manager,Response plans
+AWS Systems Manager,Incident Manager,Hours per response plan Value
+AWS Systems Manager,Incident Manager,Hours per response plan Value Unit
+AWS Transfer Family,SFTP servers monthly usage,Total number of server endpoints with SFTP enabled
+AWS Transfer Family,SFTP servers monthly usage,Data uploaded per month over SFTP server endpoints
+AWS Transfer Family,SFTP servers monthly usage,Unit
+AWS Transfer Family,SFTP servers monthly usage,Data downloaded per month over SFTP server endpoints
+AWS Transfer Family,SFTP servers monthly usage,Unit
+AWS Transfer Family,SFTP servers monthly usage,Data uploaded per month over SFTP to be decrypted using PGP
+AWS Transfer Family,SFTP servers monthly usage,Unit
+AWS Transfer Family,SFTP connectors monthly usage,"Number of connector calls to send or retrieve files from remote SFTP servers, or to list directory contents from remote SFTP servers"
+AWS Transfer Family,SFTP connectors monthly usage,Data sent or retrieved per month using SFTP connectors
+AWS Transfer Family,SFTP connectors monthly usage,Unit
+AWS Transfer Family,FTPS,Total number of endpoints with FTPS enabled
+AWS Transfer Family,FTPS,Data uploaded per month over FTPS
+AWS Transfer Family,FTPS,Unit
+AWS Transfer Family,FTPS,Data downloaded per month over FTPS
+AWS Transfer Family,FTPS,Unit
+AWS Transfer Family,FTPS,Data uploaded per month over FTPS to be decrypted using PGP
+AWS Transfer Family,FTPS,Unit
+AWS Transfer Family,FTP,Total number of endpoints with FTP enabled
+AWS Transfer Family,FTP,Data uploaded per month over FTP
+AWS Transfer Family,FTP,Unit
+AWS Transfer Family,FTP,Data downloaded per month over FTP
+AWS Transfer Family,FTP,Unit
+AWS Transfer Family,FTP,Data uploaded per month over FTP to be decrypted using PGP
+AWS Transfer Family,FTP,Unit
+AWS Transfer Family,Web apps monthly usage,Total number of web app units
+AWS Transfer Family,AS2,Total number of endpoints with AS2 enabled
+AWS Transfer Family,AS2,Number of AS2 messages sent per month
+AWS Transfer Family,AS2,Number of AS2 messages received per month
+Amazon EKS,EKS Cluster Pricing - Standard Support,Number of EKS Clusters
+Amazon EKS,EKS Cluster Pricing - Extended Support,Number of EKS Clusters
+Amazon EKS,EKS Hybrid Nodes Pricing,Number of hybrid nodes
+Amazon EKS,EKS Hybrid Nodes Pricing,Unit
+Amazon EKS,EKS Hybrid Nodes Pricing,Number of vCPU per hybrid node
+Amazon S3,S3 Standard,S3 Standard storage
+Amazon S3,S3 Standard,Unit
+Amazon S3,S3 Standard,How will data be moved into S3 Standard?
+Amazon S3,S3 Standard,"PUT, COPY, POST, LIST requests to S3 Standard"
+Amazon S3,S3 Standard,"GET, SELECT, and all other requests from S3 Standard"
+Amazon S3,S3 Standard,Data returned by S3 Select Value
+Amazon S3,S3 Standard,Data returned by S3 Select Unit
+Amazon S3,S3 Standard,Data scanned by S3 Select Value
+Amazon S3,S3 Standard,Data scanned by S3 Select Unit
+Amazon S3,S3 Intelligent - Tiering,S3 INT storage
+Amazon S3,S3 Intelligent - Tiering,Unit
+Amazon S3,S3 Intelligent - Tiering,S3 INT Average Object Size Value
+Amazon S3,S3 Intelligent - Tiering,S3 INT Average Object Size Unit
+Amazon S3,S3 Intelligent - Tiering,How will data be moved into S3 INT?
+Amazon S3,S3 Intelligent - Tiering,Percentage of Storage in INT-Frequent Access Tier
+Amazon S3,S3 Intelligent - Tiering,Percentage of Storage in INT-Infrequent Access Tier (% of storage that hasn't been accessed in the last 30 days)
+Amazon S3,S3 Intelligent - Tiering,Percentage of Storage in INT-Archive Instant Access Tier (% of storage that hasn't been accessed in the last 90 days)
+Amazon S3,S3 Intelligent - Tiering,Percentage of Storage in INT-Archive Access Tier (% of storage that hasn't been accessed for a minimum of 90 days)
+Amazon S3,S3 Intelligent - Tiering,Percentage of Storage in INT-Deep Archive Access Tier (% of storage that hasn't been accessed for a minimum of 180 days)
+Amazon S3,S3 Intelligent - Tiering,"PUT, COPY, POST, LIST requests to S3 INT"
+Amazon S3,S3 Intelligent - Tiering,"GET, SELECT, and all other requests from S3 INT"
+Amazon S3,S3 Intelligent - Tiering,Lifecycle Transition requests
+Amazon S3,S3 Intelligent - Tiering,Data returned by S3 Select Value
+Amazon S3,S3 Intelligent - Tiering,Data returned by S3 Select Unit
+Amazon S3,S3 Intelligent - Tiering,Data scanned by S3 Select Value
+Amazon S3,S3 Intelligent - Tiering,Data scanned by S3 Select Unit
+Amazon S3,S3 Standard - Infrequent Access,S3 Standard-IA storage
+Amazon S3,S3 Standard - Infrequent Access,Unit
+Amazon S3,S3 Standard - Infrequent Access,How will data be moved into S3 Standard-IA ?
+Amazon S3,S3 Standard - Infrequent Access,"PUT, COPY, POST, LIST requests to S3 Standard-IA"
+Amazon S3,S3 Standard - Infrequent Access,"GET, SELECT, and all other requests from S3 Standard-IA"
+Amazon S3,S3 Standard - Infrequent Access,Lifecycle Transition requests
+Amazon S3,S3 Standard - Infrequent Access,Data retrievals Value
+Amazon S3,S3 Standard - Infrequent Access,Data retrievals Unit
+Amazon S3,S3 Standard - Infrequent Access,Data returned by S3 Select Value
+Amazon S3,S3 Standard - Infrequent Access,Data returned by S3 Select Unit
+Amazon S3,S3 Standard - Infrequent Access,Data scanned by S3 Select Value
+Amazon S3,S3 Standard - Infrequent Access,Data scanned by S3 Select Unit
+Amazon S3,S3 One Zone - Infrequent Access,S3 One Zone-IA storage
+Amazon S3,S3 One Zone - Infrequent Access,Unit
+Amazon S3,S3 One Zone - Infrequent Access,How will data be moved into S3 One Zone-IA?
+Amazon S3,S3 One Zone - Infrequent Access,"PUT, COPY, POST, LIST requests to S3 One Zone-IA"
+Amazon S3,S3 One Zone - Infrequent Access,"GET, SELECT, and all other requests from S3 One Zone-IA"
+Amazon S3,S3 One Zone - Infrequent Access,Lifecycle Transition requests
+Amazon S3,S3 One Zone - Infrequent Access,Data retrievals Value
+Amazon S3,S3 One Zone - Infrequent Access,Data retrievals Unit
+Amazon S3,S3 One Zone - Infrequent Access,Data returned by S3 Select Value
+Amazon S3,S3 One Zone - Infrequent Access,Data returned by S3 Select Unit
+Amazon S3,S3 One Zone - Infrequent Access,Data scanned by S3 Select Value
+Amazon S3,S3 One Zone - Infrequent Access,Data scanned by S3 Select Unit
+Amazon S3,S3 Glacier Flexible Retrieval,S3 Glacier Flexible Retrieval storage
+Amazon S3,S3 Glacier Flexible Retrieval,Unit
+Amazon S3,S3 Glacier Flexible Retrieval,S3 Glacier Flexible Retrieval Average Object Size Value
+Amazon S3,S3 Glacier Flexible Retrieval,S3 Glacier Flexible Retrieval Average Object Size Unit
+Amazon S3,S3 Glacier Flexible Retrieval,How will data be moved into S3 Glacier Flexible Retrieval?
+Amazon S3,S3 Glacier Flexible Retrieval,"PUT, COPY, POST, LIST requests to S3 Glacier Flexible Retrieval"
+Amazon S3,S3 Glacier Flexible Retrieval,Lifecycle Transitions into S3 Glacier Flexible Retrieval
+Amazon S3,S3 Glacier Flexible Retrieval,Restore requests (Standard)
+Amazon S3,S3 Glacier Flexible Retrieval,Restore requests (Expedited)
+Amazon S3,S3 Glacier Flexible Retrieval,Restore requests (Bulk)
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Standard) Value
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Standard) Unit
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Expedited) Value
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Expedited) Unit
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Bulk) Value
+Amazon S3,S3 Glacier Flexible Retrieval,Data retrievals (Bulk) Unit
+Amazon S3,S3 Glacier Flexible Retrieval,Provisioned Capacity Units
+Amazon S3,S3 Glacier Deep Archive,S3 Glacier Deep Archive storage
+Amazon S3,S3 Glacier Deep Archive,Unit
+Amazon S3,S3 Glacier Deep Archive,S3 Glacier Deep Archive Average Object Size Value
+Amazon S3,S3 Glacier Deep Archive,S3 Glacier Deep Archive Average Object Size Unit
+Amazon S3,S3 Glacier Deep Archive,How will data be moved into S3 Glacier Deep Archive?
+Amazon S3,S3 Glacier Deep Archive,"PUT, COPY, POST, LIST requests to S3 Glacier Deep Archive"
+Amazon S3,S3 Glacier Deep Archive,Lifecycle Transitions into S3 Glacier Deep Archive
+Amazon S3,S3 Glacier Deep Archive,Restore requests (Standard)
+Amazon S3,S3 Glacier Deep Archive,Restore requests (Bulk)
+Amazon S3,S3 Glacier Deep Archive,Data retrievals (Standard) Value
+Amazon S3,S3 Glacier Deep Archive,Data retrievals (Standard) Unit
+Amazon S3,S3 Glacier Deep Archive,Data retrievals (Bulk) Value
+Amazon S3,S3 Glacier Deep Archive,Data retrievals (Bulk) Unit
+Amazon S3,S3 Management and Insights,S3 Storage Lens Objects
+Amazon S3,S3 Management and Insights,Unit
+Amazon S3,S3 Batch Operations,S3 Batch Operations Jobs
+Amazon S3,S3 Batch Operations,Unit
+Amazon S3,S3 Batch Operations,S3 Batch Operations Objects
+Amazon S3,S3 Batch Operations,Unit
+Amazon S3,S3 Encryption,Size of encrypted data
+Amazon S3,S3 Encryption,Unit
+Amazon S3,Other management and analytics features,S3 General Purpose Buckets
+Amazon S3,Other management and analytics features,Unit
+Amazon S3,Other management and analytics features,S3 Inventory
+Amazon S3,Other management and analytics features,Unit
+Amazon S3,Other management and analytics features,S3 Storage Class Analysis
+Amazon S3,Other management and analytics features,Unit
+Amazon S3,Other management and analytics features,S3 Object Tagging
+Amazon S3,Other management and analytics features,Unit
+Amazon S3,S3 Object Lambda,GET requests from S3
+Amazon S3,S3 Object Lambda,Duration that the Lambda function is set to execute per request (in ms)
+Amazon S3,S3 Object Lambda,Amount of memory allocated to the Lambda function Value
+Amazon S3,S3 Object Lambda,Amount of memory allocated to the Lambda function Unit
+Amazon S3,S3 Object Lambda,Size of data returned by S3 Object Lambda Value
+Amazon S3,S3 Object Lambda,Size of data returned by S3 Object Lambda Unit
+Amazon S3,S3 Glacier Instant Retrieva,S3 Glacier Instant Retrieval storage
+Amazon S3,S3 Glacier Instant Retrieva,Unit
+Amazon S3,S3 Glacier Instant Retrieva,How will data be moved into S3 Glacier Instant Retrieval?
+Amazon S3,S3 Glacier Instant Retrieva,"PUT, COPY, POST, LIST requests to S3 Glacier Instant Retrieval"
+Amazon S3,S3 Glacier Instant Retrieva,"GET, SELECT, and all other requests from S3 Glacier Instant Retrieval"
+Amazon S3,S3 Glacier Instant Retrieva,Lifecycle Transition requests
+Amazon S3,S3 Glacier Instant Retrieva,Data retrievals Value
+Amazon S3,S3 Glacier Instant Retrieva,Data retrievals Unit
+Amazon S3,S3 Glacier Instant Retrieva,Data returned by S3 Select Value
+Amazon S3,S3 Glacier Instant Retrieva,Data returned by S3 Select Unit
+Amazon S3,S3 Glacier Instant Retrieva,Data scanned by S3 Select Value
+Amazon S3,S3 Glacier Instant Retrieva,Data scanned by S3 Select Unit
+Amazon S3,Data Transfer ,Inbound Data Transfer Data transfer from
+Amazon S3,Data Transfer ,Inbound Data Transfer Enter Amount
+Amazon S3,Data Transfer ,Inbound Data Transfer Data amount
+Amazon S3,Data Transfer ,Outbound Data Transfer Data transfer to
+Amazon S3,Data Transfer ,Outbound Data Transfer Enter Amount
+Amazon S3,Data Transfer ,Outbound Data Transfer Data amount
+Amazon S3,S3 Express One Zone ,S3 Express One Zone storage
+Amazon S3,S3 Express One Zone ,Unit
+Amazon S3,S3 Express One Zone ,"PUT, COPY, POST, LIST, RENAME requests to S3 Express One Zone"
+Amazon S3,S3 Express One Zone ,GET and all other requests from S3 Express One Zone
+Amazon S3,S3 Express One Zone ,PUT/ COPY request size
+Amazon S3,S3 Express One Zone ,Unit
+Amazon S3,S3 Express One Zone ,GET request size
+Amazon S3,S3 Express One Zone ,Unit
+Amazon S3,S3 Access Grants,Number of AccessGrants Requests

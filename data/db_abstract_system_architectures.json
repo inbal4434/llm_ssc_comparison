@@ -1,0 +1,420 @@
+{
+  "system": {
+    "sys_purposes": [
+      "This is a system that connects to various databases and documents, processes the information, runs business logic on the data, extracts hidden information in documents, works with structured and unstructured data, the system provides a live user interface for optimizing the various adjustments. The system adapts the data to the archive databases.",
+      "In addition, the system performs the opposite and exports the information to external bodies and systems."
+    ],
+    "business_kpis": [
+      "Extracting information and converting 1000 email files to PDF in 20 minutes.",
+      "94% success rate in file conversion.",
+      "100% success rate of deposit loading.",
+      "Average annual cost of licensing the use of conversion components: NIS 50,000"
+    ],
+    "env_status": true,
+    "cloud_providers": [
+      "AWS"
+    ],
+    "deploy_regions": [
+      "il-central-1"
+    ],
+    "sys_components": null,
+    "sys_conn_endpoints": [
+      "Microsoft SQL Server",
+      "rosetta api (Oracle Server)",
+      "Aspose",
+      "Tika Apache"
+    ],
+    "compliance_reqs": null,
+    "security_reqs": null,
+    "perf_monitoring_methods": null,
+    "monitor_events_logs": null,
+    "budget_ceiling": null,
+    "budget_constraints": null,
+    "cost_sensitivity": 1,
+    "deploy_complexity_sensitivity": 2,
+    "maintenance_sensitivity": 3,
+    "reliability_sensitivity": 5,
+    "performance_sensitivity": 4,
+    "sys_concerns": [
+      "Challenges of connecting and transferring information between the internal network and the cloud and back.",
+      "The information received in the system for processing is unstructured information and difficult to manage.",
+      "Fear of increased costs in using cloud tools, and transferring DATA between systems.",
+      "Lack of experience in the cloud environment, changing existing architecture",
+      "Dependence on additional factors.",
+      "Desire to preserve and improve existing code.",
+      "The system also works on a network disconnected from the cloud. Currently, the code is the same on both networks. If we move to a cloud tool, we will need different system maintenance and architecture."
+    ],
+    "hl_arch_type": null
+  },
+  "components": [
+    {
+      "id": "compute_1",
+      "functionality_sentence": "compute for file content and metadata extraction including diverse, type, processing",
+      "type": "compute",
+      "functionality": "file content and metadata extraction including diverse, type, processing",
+      "processes": {
+        "extracting_metadata_": {
+          "main_processes": [
+            "File Ingestion",
+            "Metadata and Content Extraction",
+            "Data Transformation",
+            "Logging and Archiving"
+          ],
+          "process_func_activities": [
+            "Parse diverse file types (Office, PDF, Email, multimedia)",
+            "Extract textual content from documents",
+            "Extract metadata (author, creation date, size, etc.) from files",
+            "Process structured and unstructured data",
+            "Handle a wide variety of file formats and sizes"
+          ],
+          "process_triggers_and_outcomes": [
+            "User uploads file -> Extracted content and metadata stored, log entry created",
+            "Folder watcher detects new file -> Extracted content and metadata stored, log entry created"
+          ],
+          "avg_initiations": 3,
+          "max_initiations": 200,
+          "initiations_time_unit": "d",
+          "avg_event_size": 10,
+          "avg_event_size_unit": "GB",
+          "max_event_size": 1000,
+          "max_event_size_unit": "GB",
+          "storage_volume": [
+            {
+              "volume": 10,
+              "storage_type": "hot",
+              "unit": "TB"
+            }
+          ],
+          "storage_volume_unit": "TB",
+          "data_growth_rate": 10,
+          "data_growth_rate_unit": "MB",
+          "data_growth_time_unit": "month",
+          "data_formats": [
+            "Office documents",
+            "PDF",
+            "audio files",
+            "videos",
+            "emails",
+            "photos",
+            "CSV",
+            "structured text",
+            "unstructured text"
+          ],
+          "avg_retrieval_size": 0.1,
+          "max_retrieval_size": 5,
+          "retrieval_size_unit": "MB",
+          "data_access_patterns": [
+            {
+              "time_value": 1,
+              "time_unit": "d",
+              "volume_retrieved": 1100,
+              "volume_unit": "GB",
+              "retrieval_speed": 30,
+              "speed_unit": "m"
+            }
+          ],
+          "total_users": 10,
+          "max_concurent_user_active": 10,
+          "completion_time_by_func": [
+            {
+              "functionality": "Small document metadata extraction (<10MB)",
+              "time_value": 5,
+              "time_unit": "s"
+            },
+            {
+              "functionality": "Large document content extraction (100MB)",
+              "time_value": 1,
+              "time_unit": "m"
+            },
+            {
+              "functionality": "Video file metadata extraction (1GB)",
+              "time_value": 5,
+              "time_unit": "m"
+            },
+            {
+              "functionality": "Peak batch processing (1000GB)",
+              "time_value": 4,
+              "time_unit": "h"
+            }
+          ],
+          "arch_modernization_type": "hybrid",
+          "modern_env_compatibility": true,
+          "uptime_value": 12,
+          "uptime_unit": "h",
+          "usage_patterns_peaks": [
+            "Standard business hours (07:00-19:00) for interactive use",
+            "Overnight (19:00-07:00) for large batch processing jobs and folder watcher-triggered tasks"
+          ],
+          "growth_rate_value": 5,
+          "growth_rate_unit": "%",
+          "scalability_time": 5,
+          "scalability_time_unit": "m",
+          "arch_characteristics": [
+            "Monolithic .NET logic core",
+            "Microservice components for specific tasks",
+            "Angular-based user interface",
+            "Hybrid architecture with on-premise and cloud considerations"
+          ],
+          "sys_constraints": [
+            "Connectivity challenges between internal network and cloud",
+            "Requirement to support disconnected (non-cloud) network operations",
+            "Handling of unstructured and difficult-to-manage information",
+            "Cost sensitivity for cloud data transfer and tool usage"
+          ],
+          "licenses_portability": [
+            {
+              "software_name": "Aspose",
+              "is_portable": false
+            },
+            {
+              "software_name": "Tika Apache",
+              "is_portable": true
+            },
+            {
+              "software_name": "Microsoft SQL Server",
+              "is_portable": true
+            }
+          ],
+          "extracted_ai_models": null
+        }
+      },
+      "serving_processes": [
+        "extracting_metadata_"
+      ],
+      "source_functionalities": [
+        "compute_1"
+      ],
+      "process_overlap_score": 1,
+      "is_merged_component": false,
+      "merged_from": []
+    },
+    {
+      "id": "network_1",
+      "functionality_sentence": "network with watched folder input trigger",
+      "type": "network",
+      "functionality": "watched folder input trigger",
+      "processes": {
+        "extracting_metadata_": {
+          "main_processes": [
+            "extracting_metadata_"
+          ],
+          "process_func_activities": [
+            "Monitors a network folder for new files.",
+            "Triggers the metadata extraction process when a file is added/modified.",
+            "Handles network connectivity to the shared folder.",
+            "Manages file system events (create, modify)."
+          ],
+          "process_triggers_and_outcomes": [
+            "Trigger: A new file is dropped into the watched folder.",
+            "Outcome: The file is identified and a new metadata extraction workflow is initiated."
+          ],
+          "avg_initiations": 3,
+          "max_initiations": 200,
+          "initiations_time_unit": "d",
+          "avg_event_size": 25,
+          "avg_event_size_unit": "KB",
+          "max_event_size": 50,
+          "max_event_size_unit": "KB",
+          "storage_volume": [
+            {
+              "volume": 0,
+              "storage_type": "hot",
+              "unit": "GB"
+            }
+          ],
+          "storage_volume_unit": null,
+          "data_growth_rate": 0,
+          "data_growth_rate_unit": "MB",
+          "data_growth_time_unit": "m",
+          "data_formats": [
+            "File System Events",
+            "File path metadata"
+          ],
+          "avg_retrieval_size": 0.1,
+          "max_retrieval_size": 1,
+          "retrieval_size_unit": "KB",
+          "data_access_patterns": [
+            {
+              "time_value": 5,
+              "time_unit": "s",
+              "volume_retrieved": 0.5,
+              "volume_unit": "KB",
+              "retrieval_speed": 100,
+              "speed_unit": "ms"
+            }
+          ],
+          "total_users": 10,
+          "max_concurent_user_active": 1,
+          "completion_time_by_func": [
+            {
+              "functionality": "watched folder input trigger",
+              "time_value": 750,
+              "time_unit": "ms"
+            }
+          ],
+          "arch_modernization_type": "hybrid",
+          "modern_env_compatibility": true,
+          "uptime_value": 24,
+          "uptime_unit": "h",
+          "usage_patterns_peaks": [
+            "Sporadic peaks during business hours (07:00-19:00) aligning with document processing workflows.",
+            "Potentially higher usage during end-of-day or end-of-month batch processing."
+          ],
+          "growth_rate_value": 15,
+          "growth_rate_unit": "y",
+          "scalability_time": 1,
+          "scalability_time_unit": "s",
+          "arch_characteristics": [
+            "Event-driven",
+            "Real-time monitoring",
+            "Asynchronous process initiation",
+            "High availability requirement to prevent missed files."
+          ],
+          "sys_constraints": [
+            "Dependent on network reliability and bandwidth between the application server and the file share.",
+            "Requires appropriate file system permissions.",
+            "Potential for missed events if the trigger service is down."
+          ],
+          "licenses_portability": [
+            {
+              "software_name": "Operating System File Watcher Service",
+              "is_portable": true
+            }
+          ],
+          "extracted_ai_models": null
+        }
+      },
+      "serving_processes": [
+        "extracting_metadata_"
+      ],
+      "source_functionalities": [
+        "network_1"
+      ],
+      "process_overlap_score": 1,
+      "is_merged_component": false,
+      "merged_from": []
+    },
+    {
+      "id": "integration_1",
+      "functionality_sentence": "integration with parsing library integration",
+      "type": "integration",
+      "functionality": "parsing library integration",
+      "processes": {
+        "extracting_metadata_": {
+          "main_processes": [
+            "extracting_metadata_"
+          ],
+          "process_func_activities": [
+            "Integrating parsing libraries (e.g., Aspose, Tika) to enable file content and metadata extraction.",
+            "Making API calls to the parsing library for each file processing request.",
+            "Handling data exchange between the main application and the parsing library.",
+            "Managing dependencies and configurations for the integrated libraries."
+          ],
+          "process_triggers_and_outcomes": [
+            "Trigger: A file is submitted for processing. Outcome: The appropriate parsing library is invoked, and the extracted text/metadata is returned to the main process."
+          ],
+          "avg_initiations": 3,
+          "max_initiations": 200,
+          "initiations_time_unit": "d",
+          "avg_event_size": 1,
+          "avg_event_size_unit": "MB",
+          "max_event_size": 25,
+          "max_event_size_unit": "MB",
+          "storage_volume": null,
+          "storage_volume_unit": null,
+          "data_growth_rate": null,
+          "data_growth_rate_unit": null,
+          "data_growth_time_unit": null,
+          "data_formats": [
+            "Office documents",
+            "PDF",
+            "Email",
+            "CSV",
+            "Audio files",
+            "Video files",
+            "Images"
+          ],
+          "avg_retrieval_size": 0.1,
+          "max_retrieval_size": 5,
+          "retrieval_size_unit": "MB",
+          "data_access_patterns": null,
+          "total_users": 10,
+          "max_concurent_user_active": 10,
+          "completion_time_by_func": [
+            {
+              "functionality": "Simple document parse (e.g. 1 page PDF)",
+              "time_value": 500,
+              "time_unit": "ms"
+            },
+            {
+              "functionality": "Complex document parse (e.g. 100 page document with images)",
+              "time_value": 15,
+              "time_unit": "s"
+            },
+            {
+              "functionality": "Media file metadata extraction (e.g. video)",
+              "time_value": 5,
+              "time_unit": "s"
+            }
+          ],
+          "arch_modernization_type": "hybrid",
+          "modern_env_compatibility": true,
+          "uptime_value": 12,
+          "uptime_unit": "h",
+          "usage_patterns_peaks": [
+            "Peak usage expected during business hours (09:00-17:00) with large batch processing jobs.",
+            "Off-peak usage (19:00-07:00) for maintenance and smaller, automated tasks from folder watchers."
+          ],
+          "growth_rate_value": 5,
+          "growth_rate_unit": "d",
+          "scalability_time": 5,
+          "scalability_time_unit": "m",
+          "arch_characteristics": [
+            "Dependency on third-party commercial and open-source libraries.",
+            "Acts as a service utilized by other components within the monolithic/microservice architecture.",
+            "Requires significant CPU for parsing complex files."
+          ],
+          "sys_constraints": [
+            "Performance is dependent on the efficiency of the third-party parsing libraries.",
+            "Licensing costs for commercial libraries (e.g., Aspose) are a significant operational expense.",
+            "Potential for version conflicts between different parsing libraries or their dependencies."
+          ],
+          "licenses_portability": [
+            {
+              "software_name": "Aspose",
+              "is_portable": false
+            },
+            {
+              "software_name": "Apache Tika",
+              "is_portable": true
+            }
+          ],
+          "extracted_ai_models": null
+        }
+      },
+      "serving_processes": [
+        "extracting_metadata_"
+      ],
+      "source_functionalities": [
+        "integration_1"
+      ],
+      "process_overlap_score": 1,
+      "is_merged_component": false,
+      "merged_from": []
+    }
+  ],
+  "connections": [
+    {
+      "connection_id": "conn_network_1_compute_1_6efc6419",
+      "source_id": "network_1",
+      "target_id": "compute_1",
+      "bidirectional": false
+    },
+    {
+      "connection_id": "conn_compute_1_integration_1_4e04c825",
+      "source_id": "compute_1",
+      "target_id": "integration_1",
+      "bidirectional": false
+    }
+  ]
+}

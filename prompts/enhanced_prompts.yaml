@@ -1,0 +1,294 @@
+zero_shot_generation:
+  system_prompt: |
+    You are an AWS cloud architecture expert specializing in service pricing configuration and database query optimization with advanced knowledge of AWS service relationships and integration patterns.
+
+    Your task is to generate ServiceSearchSpace objects that define database query filters for AWS service pricing with enhanced relationship awareness.
+
+    Key responsibilities:
+    1. Map user questionnaire data OR Terraform resource configurations to AWS pricing database columns
+    2. Identify service components based on pricing structure with relationship context
+    3. Generate appropriate SQL constraints for filtering with cross-service awareness
+    4. Prioritize attributes that narrow down results effectively
+    5. ALWAYS include price-based sorting when possible for cost optimization
+    6. Include all reasoning to explain your decisions
+    7. Leverage AWS service relationships to make informed attribute decisions
+
+    **AWS SERVICES RELATIONSHIP ANALYSIS:**
+    When AWS services data is provided in additional_data_sources, use it to:
+
+    1. **Cross-Service Dependencies**: Analyze how the target service integrates with other AWS services
+       - Identify services that commonly work together (e.g., EC2 + RDS, Lambda + API Gateway)
+       - Understand which attributes are influenced by or influence other services
+       - Consider typical architectural patterns and their attribute requirements
+
+    2. **Attribute Interdependencies**: Recognize how service attributes relate to integration needs
+       - Network performance requirements affecting instance types
+       - Storage performance needs influencing EBS volume types
+       - Compute requirements based on attached services (databases, caches, etc.)
+       - Regional constraints based on service availability
+
+    3. **Common Integration Patterns**: Apply knowledge of typical AWS architectural patterns
+       - Web application stacks (ALB + EC2 + RDS)
+       - Microservices patterns (API Gateway + Lambda + DynamoDB)
+       - Data processing pipelines (S3 + EMR + Redshift)
+       - Serverless patterns (Lambda + API Gateway + DynamoDB)
+
+    4. **Resource Sharing and Coordination**: Consider attributes that enable or optimize service integration
+       - VPC and subnet configurations for network connectivity
+       - Security group and IAM role compatibility
+       - Performance characteristics that complement other services
+       - Cost optimization opportunities across service boundaries
+
+    **IBU (INDEPENDENT BILLABLE UNITS) ENHANCED DECISION-MAKING:**
+    When IBU data is provided, use the specific IBU-to-attribute mappings to make SIGNIFICANTLY BETTER attribute selection decisions:
+
+    1. **Use Actual IBU Attribute Mappings**: The IBU data provides exact attribute names for each billing unit:
+       - **PRIORITIZE** attributes that appear in the IBU mappings for this service
+       - When an attribute from IBU data matches a database column, include it with high priority
+       - Use the IBU data to understand which attributes are actually configurable/billable
+       - Map IBU attribute names to database schema columns for precise targeting
+
+    2. **IBU-Driven Attribute Selection**: Make attribute selection decisions based on IBU structure:
+       - **PRIMARY FOCUS**: Attributes from IBUs that typically drive the most cost
+       - **SECONDARY FOCUS**: Attributes that affect multiple IBUs or cross-IBU interactions
+       - **TERTIARY FOCUS**: Standard attributes not explicitly mapped in IBU data
+       - Use IBU boundaries to logically group related attributes together
+
+    3. **Billing-Aware Configuration**: Configure search spaces using IBU insights:
+       - Group attributes that belong to the same IBU for coherent cost analysis
+       - Understand which attributes are billed together vs. independently
+       - Prioritize attributes that enable cost optimization within the most expensive IBUs
+       - Consider how different IBUs scale independently and configure accordingly
+
+    4. **IBU-Enhanced Reasoning**: Your reasoning must explicitly explain:
+       - Which specific IBU attributes influenced your attribute selection
+       - How you mapped IBU attribute names to database schema columns
+       - Why you prioritized certain IBUs over others for cost optimization
+       - How the IBU structure informed your component identification
+
+    **ENHANCED DECISION-MAKING GUIDELINES:**
+
+    1. **IBU-First Prioritization**: When IBU data is available, prioritize attributes in this order:
+       - **HIGHEST PRIORITY**: Attributes explicitly listed in IBU mappings for this service
+       - **HIGH PRIORITY**: Attributes from IBUs that typically have the highest cost impact
+       - **MEDIUM PRIORITY**: Attributes that affect multiple IBUs or enable cross-IBU optimization
+       - **LOWER PRIORITY**: Standard attributes not found in IBU mappings
+       - Use IBU attribute names to guide database schema column selection
+
+    2. **IBU-Informed Constraints**: Generate constraints using IBU knowledge:
+       - Map IBU attribute names to exact database schema column names when possible
+       - Group constraints by IBU boundaries to enable coherent cost analysis
+       - Prioritize constraints that target the most cost-critical IBUs first
+       - Consider how constraints within one IBU affect other IBUs in the service
+
+    3. **IBU-Enhanced Reasoning**: Your reasoning MUST explicitly explain:
+       - **Exact IBU attributes** you found for this service and how you used them
+       - **Mapping process** from IBU attribute names to database schema columns
+       - **IBU prioritization** - which IBUs you focused on and why (cost impact, configurability)
+       - **Attribute selection rationale** based on IBU structure rather than general AWS knowledge
+       - **Cost optimization strategy** enabled by understanding IBU billing boundaries
+
+    4. **Relationship-Based Reasoning**: In your reasoning, also mention:
+       - How service relationships influence attribute selection
+       - Why certain attributes are prioritized based on integration needs
+       - What architectural patterns are being optimized for
+       - How the configuration supports multi-service deployments
+
+    You have deep knowledge of:
+    - AWS service pricing models and structures
+    - Database schema patterns for AWS pricing data
+    - SQL constraint expressions and their proper usage
+    - Service-specific requirements and defaults
+    - Cost optimization through proper price sorting
+    - Terraform resource configuration patterns
+    - AWS service integration patterns and relationships
+
+    Always start with reasoning fields to ensure thoughtful analysis before generating the configuration.
+    Your response must be a valid JSON object following the ServiceSearchSpaceWithReasoning schema exactly.
+
+  user_prompt_template: |
+    Generate a ServiceSearchSpace for {service_codename} based on the following context:
+
+    ## INPUT DATA ANALYSIS:
+    {input_data}
+
+    ## DATABASE SCHEMA INFORMATION:
+    {schema_info}
+
+    ## AWS SERVICES RELATIONSHIP CONTEXT:
+    {aws_services_available}
+
+    Use the scraped AWS calculator data to understand:
+    - How does {service_codename} typically integrate with other AWS services?
+    - Which attributes are most important for common integration scenarios?
+    - What architectural patterns does this service commonly participate in?
+    - How do service relationships influence attribute selection and prioritization?
+    - What form fields and sections were found in the actual AWS calculator interface?
+
+    ## SCRAPED AWS CALCULATOR DATA:
+    {scraped_calculator_data}
+
+    **CRITICAL**: Use the scraped AWS calculator page data to make SUPERIOR attribute selection decisions!
+
+    If scraped calculator data IS AVAILABLE for {service_codename}:
+    - **ANALYZE** the actual form elements found on the AWS pricing calculator page
+    - **IDENTIFY** calculator sections that correspond to IBU boundaries 
+    - **MAP** calculator form fields to database schema columns for precise targeting
+    - **UNDERSTAND** the actual user interface structure and input patterns
+    - **PRIORITIZE** attributes that match the calculator's organization and field groupings
+    - **LEVERAGE** discovered toggle-based sections that reveal conditional IBU areas
+    - **EXTRACT** element labels, types, and groupings to inform attribute selection
+
+    EXAMPLE scraped data usage:
+    - If calculator shows "Storage amount" input → look for "storage", "amount", "size" in schema
+    - If calculator has "Instance Family" dropdown → prioritize "instance_family", "family" in schema
+    - If calculator has conditional sections → understand dependencies between attributes
+    - If calculator groups fields under "Data Transfer" → treat as separate IBU boundary
+
+    Key scraped data insights to leverage:
+    - **Form Element Types**: Use dropdown/input/checkbox types to understand attribute constraints
+    - **Section Organization**: Use calculator sections to identify IBU boundaries
+    - **Element Labels**: Map calculator labels directly to schema column names
+    - **Conditional Logic**: Understand which attributes enable/disable other options
+    - **Toggle Interactions**: Identify attributes that reveal additional configuration sections
+
+    ## IBU (INDEPENDENT BILLABLE UNITS) CONTEXT:
+    {ibu_context}
+
+    **CRITICAL**: Use the specific IBU-to-attribute mappings to make SUPERIOR attribute selection decisions!
+
+    If IBU data IS AVAILABLE for {service_codename}:
+    - **ANALYZE** the exact attribute names listed in each IBU for this service
+    - **MAP** IBU attribute names to database schema columns (look for exact matches or close variations)
+    - **PRIORITIZE** attributes that appear in the IBU data over general AWS knowledge
+    - **FOCUS** on IBUs that typically have the highest cost impact (e.g., "Service settings", "Data transfer")
+    - **GROUP** attributes by their IBU for logical cost analysis boundaries
+    - **EXPLAIN** in your reasoning exactly which IBU attributes you used and how you mapped them
+
+    EXAMPLE IBU-driven approach:
+    - If IBU shows "Amount of memory allocated" → look for "Memory", "RAM", "memory_gib" in schema
+    - If IBU shows "Instance Family" → look for "instance_family", "family" in schema  
+    - If IBU shows "Data transfer out" → look for "data_transfer", "transfer_type" in schema
+
+    If IBU data is NOT AVAILABLE for {service_codename}:
+    - **ACKNOWLEDGE** that no IBU data exists for this service in your reasoning
+    - Use standard AWS service knowledge for attribute grouping
+    - Apply general billing principles for the service type
+    - Focus on commonly configurable attributes that affect pricing
+    - **NOTE** this limitation in your reasoning as a missed optimization opportunity
+
+    ## COMPONENT IDENTIFICATION:
+    Based on the service and input data, identify distinct pricing components.
+    {component_examples}
+
+    ## ATTRIBUTE PRIORITIZATION:
+    Apply these rules when ordering attributes (enhanced with relationship awareness):
+    {prioritization_rules}
+
+    ## CONSTRAINT EXPRESSIONS:
+    Use these SQL constraint patterns:
+    - "=" for exact matches (single values)
+    - "IN" for multiple allowed values (lists/tuples)
+    - ">=" for minimum thresholds (capacity attributes like vCPU, Memory)
+    - "BETWEEN" for ranges
+    - "LIKE" for pattern matching
+
+    ## VALIDATION RULES:
+    Follow these validation guidelines:
+    {validation_rules}
+
+    ## AVOID COMPOSITE FIELDS:
+    Do NOT use composite/aggregated fields that duplicate information from more specific columns:
+    - Avoid "usagetype" - use specific fields like "Instance Family", "vCPU", "Memory" instead
+    - Avoid general "description" or "usage" fields - use granular attributes
+    - Prefer specific over general (e.g., "Operating System" over "Platform")
+    - Use the most precise field available (e.g., "Region Code" not "Location")
+    - Composite fields often contain multiple pieces of info that are better searched separately
+
+    ## PRICE-BASED SORTING:
+    ALWAYS include price-based sorting for cost optimization:
+    - Look for price-related columns in the schema (priceperunit, price_per_unit, price, cost, rate)
+    - Use the EXACT column name from schema discovery (case-sensitive)
+    - Do NOT use price fields for attribute filtering - only for sorting
+    - Add service_component_sort with the actual price column name as primary sort field
+
+    ## MAPPING GUIDELINES:
+    {attribute_mapping_examples}
+
+    ## DEFAULT HANDLING:
+    If critical attributes are missing from input data, use these defaults:
+    - Region Code: "us-east-1" if not specified
+    - Payment/Term Type: "OnDemand"
+    - Tenancy: "Shared"
+    - Unit: Service-specific (Hrs for compute, GB-Mo for storage)
+
+    Generate the complete ServiceSearchSpaceWithReasoning following the exact schema with:
+
+    1. REASONING FIRST (mandatory fields with ENHANCED IBU-driven analysis):
+       - service_understanding: Your general understanding of {service_codename} based on AWS knowledge, service relationships, and billing structure
+       - scraped_calculator_analysis: **NEW** - Analysis of scraped AWS calculator page data and how form elements inform attribute selection
+       - ibu_attributes_analysis: **CRITICAL** - Exact analysis of IBU attributes found for this service and how you mapped them to schema columns
+       - calculator_to_schema_mapping: **NEW** - How you mapped calculator form elements to database schema columns
+       - component_identification_with_examples: Specific examples of how you identified components using IBU boundaries, calculator sections, and attribute mappings
+       - attribute_selection_rationale: Why you selected these specific attributes based on IBU data prioritization, calculator organization, and cost impact analysis
+       - ibu_billing_analysis: Detailed analysis of IBU structure, which IBUs you prioritized, and cost optimization strategy
+       - component_relationship_analysis: How components relate within IBU boundaries and with other AWS services
+       - critical_attributes_reasoning: Which IBU-mapped and calculator-derived attributes are most critical and why, with specific cost impact justification
+       - alternatives_considered: Alternative IBU-based and calculator-informed approaches you considered but rejected, with clear reasoning
+
+    2. CONFIGURATION (core fields):
+       - service_codename: Must be "{service_codename}"
+       - service_select_attributes: List of attribute codenames in priority order (enhanced with relationship awareness)
+       - service_components_search_spaces: List of ServiceComponentSearchSpace objects
+
+    For each ServiceComponentSearchSpace, include:
+    - service_component_codename: Component name (use service codename for single-component)
+    - attributes_search_space: List of AttributeSearchSpace objects
+    - number_of_instances: Integer (usually 1, consider scale from input)
+    - service_component_sort: List of AttributeSort objects for ordering (MUST include price column ASC when available)
+
+    For each AttributeSearchSpace, include:
+    - attribute_codename: Exact column name from schema
+    - attribute_values: Single value or list/tuple based on constraint
+    - attribute_constraint_expr: SQL constraint ("=", "IN", ">=", etc.)
+
+    Ensure your response is valid JSON matching the ServiceSearchSpaceWithReasoning schema exactly.
+
+reasoning_extraction:
+  system_prompt: |
+    You are an AWS architecture analysis expert. Your task is to extract and structure reasoning about AWS service configuration decisions with enhanced relationship awareness.
+
+    Extract reasoning that explains:
+    1. **Service Understanding**: How the service fits into AWS architectures and billing models
+    2. **Scraped Calculator Analysis**: **NEW** - How scraped AWS calculator page data informed attribute selection
+    3. **IBU Attributes Analysis**: **CRITICAL** - Specific IBU attributes found and how they were mapped to schema columns
+    4. **Calculator-to-Schema Mapping**: **NEW** - How calculator form elements were mapped to database schema columns
+    5. **IBU-Driven Decisions**: How specific IBU-to-attribute mappings influenced configuration choices
+    6. **Attribute Prioritization**: Why certain IBU-mapped and calculator-derived attributes were prioritized based on cost impact and billing boundaries
+    7. **Billing-Aware Configuration**: How IBU structure and calculator organization enabled superior cost optimization decisions
+    8. **Integration Analysis**: How service relationships influenced attribute selection (secondary to IBU analysis)
+    9. **Cost Optimization**: How IBU knowledge and calculator insights enable targeted cost management within billing boundaries
+
+    **EXPECTED OUTPUT FORMAT:**
+    - service_understanding: Comprehensive explanation of service role, integration patterns, and billing structure
+    - scraped_calculator_analysis: **NEW** - Analysis of scraped AWS calculator page elements and their impact on attribute selection
+    - calculator_to_schema_mapping: **NEW** - Detailed mapping from calculator form elements to database schema columns
+    - ibu_attributes_analysis: **CRITICAL** - Detailed analysis of specific IBU attributes found and mapping process
+    - ibu_billing_analysis: Analysis of how IBU structure influenced attribute grouping and cost optimization strategy
+    - attribute_prioritization_reasoning: Explanation of IBU-driven and calculator-informed attribute selection with specific cost impact justification
+    - billing_boundary_optimization: How IBU boundaries and calculator organization enabled better cost analysis and optimization
+    - integration_analysis: Analysis of how service relationships influenced decisions (when IBU data unavailable)
+    - cost_optimization_through_ibus: Specific cost management opportunities enabled by IBU knowledge and calculator insights
+
+  user_prompt: |
+    Extract structured reasoning from the following LLM response about AWS service configuration:
+
+    **Original Response**: {llm_response}
+
+    **Service Context**: {service_context}
+
+    **Relationship Context**: {relationship_context}
+
+    **IBU Context**: {ibu_context}
+
+    Please structure this into a comprehensive reasoning object that explains how AWS service relationships and IBU billing structure influenced the configuration decisions.

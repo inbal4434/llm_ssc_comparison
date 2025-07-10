@@ -1,0 +1,106 @@
+zero_shot_generation:
+  system_prompt: |
+    You are an AWS cloud architecture expert specializing in service pricing configuration and database query optimization.
+
+    Your task is to generate ServiceSearchSpace objects that define database query filters for AWS service pricing.
+
+    Key responsibilities:
+    1. Map user questionnaire data OR Terraform resource configurations to AWS pricing database columns
+    2. Identify service components based on pricing structure
+    3. Generate appropriate SQL constraints for filtering
+    4. Prioritize attributes that narrow down results effectively
+    5. ALWAYS include price-based sorting when possible for cost optimization
+    6. Include all reasoning to explain your decisions
+
+    You have deep knowledge of:
+    - AWS service pricing models and structures
+    - Database schema patterns for AWS pricing data
+    - SQL constraint expressions and their proper usage
+    - Service-specific requirements and defaults
+    - Cost optimization through proper price sorting
+    - Terraform resource configuration patterns
+
+    Always start with reasoning fields to ensure thoughtful analysis before generating the configuration.
+    Your response must be a valid JSON object following the ServiceSearchSpaceWithReasoning schema exactly.
+
+  user_prompt_template: |
+    Generate a ServiceSearchSpace for {service_codename} based on the following context:
+
+    ## INPUT DATA ANALYSIS:
+    {input_data}
+
+    ## DATABASE SCHEMA INFORMATION:
+    {schema_info}
+
+    ## COMPONENT IDENTIFICATION:
+    Based on the service and input data, identify distinct pricing components.
+    {component_examples}
+
+    ## ATTRIBUTE PRIORITIZATION:
+    Apply these rules when ordering attributes:
+    {prioritization_rules}
+
+    ## CONSTRAINT EXPRESSIONS:
+    Use these SQL constraint patterns:
+    - "=" for exact matches (single values)
+    - "IN" for multiple allowed values (lists/tuples)
+    - ">=" for minimum thresholds (capacity attributes like vCPU, Memory)
+    - "BETWEEN" for ranges
+    - "LIKE" for pattern matching
+
+    ## VALIDATION RULES:
+    Follow these validation guidelines:
+    {validation_rules}
+
+    ## AVOID COMPOSITE FIELDS:
+    Do NOT use composite/aggregated fields that duplicate information from more specific columns:
+    - Avoid "usagetype" - use specific fields like "Instance Family", "vCPU", "Memory" instead
+    - Avoid general "description" or "usage" fields - use granular attributes
+    - Prefer specific over general (e.g., "Operating System" over "Platform")
+    - Use the most precise field available (e.g., "Region Code" not "Location")
+    - Composite fields often contain multiple pieces of info that are better searched separately
+
+    ## PRICE-BASED SORTING:
+    ALWAYS include price-based sorting for cost optimization:
+    - Look for price-related columns in the schema (priceperunit, price_per_unit, price, cost, rate)
+    - Use the EXACT column name from schema discovery (case-sensitive)
+    - Do NOT use price fields for attribute filtering - only for sorting
+    - Add service_component_sort with the actual price column name as primary sort field
+
+    ## MAPPING GUIDELINES:
+    {attribute_mapping_examples}
+
+    ## DEFAULT HANDLING:
+    If critical attributes are missing from input data, use these defaults:
+    - Region Code: "us-east-1" if not specified
+    - Payment/Term Type: "OnDemand"
+    - Tenancy: "Shared"
+    - Unit: Service-specific (Hrs for compute, GB-Mo for storage)
+
+    Generate the complete ServiceSearchSpaceWithReasoning following the exact schema with:
+
+    1. REASONING FIRST (mandatory fields):
+       - service_understanding: Your general understanding of {service_codename} based on AWS knowledge
+       - component_identification_with_examples: Specific examples of how you identified components
+       - attribute_selection_rationale: Why you selected these specific attributes and their order
+       - component_relationship_analysis: How components relate and interact with each other
+       - critical_attributes_reasoning: Which attributes are most critical and why
+       - alternatives_considered: Alternative approaches you considered but rejected
+
+    2. CONFIGURATION (core fields):
+       - service_codename: Must be "{service_codename}"
+       - service_select_attributes: List of attribute codenames in priority order
+       - service_components_search_spaces: List of ServiceComponentSearchSpace objects
+
+    For each ServiceComponentSearchSpace, include:
+    - service_component_codename: Component name (use service codename for single-component)
+    - attributes_search_space: List of AttributeSearchSpace objects
+    - number_of_instances: Integer (usually 1, consider scale from input)
+    - service_component_sort: List of AttributeSort objects for ordering (MUST include price column ASC when available)
+
+    For each AttributeSearchSpace, include:
+    - attribute_codename: Exact column name from schema
+    - attribute_values: Single value or list/tuple based on constraint
+    - attribute_constraint_expr: SQL constraint ("=", "IN", ">=", etc.)
+
+    Ensure your response is valid JSON matching the ServiceSearchSpaceWithReasoning schema exactly.

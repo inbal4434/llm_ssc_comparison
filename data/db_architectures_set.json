@@ -1,0 +1,834 @@
+{
+  "architectures": [
+    {
+      "metadata": {
+        "architecture_name": "DataSync to EC2 Processing Architecture",
+        "architecture_id": "DataSync-EC2-Arch-1",
+        "ref_workplan_id": "wp_01_perf_focus_global",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture describes a data processing workflow where AWS DataSync transfers data to an environment that triggers processing on an Amazon EC2 instance. The EC2 instance handles both the compute and library integration aspects of the workload.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonEC2",
+          "component_id": "ec2-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ec2-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ec2-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "DataSync-Triggered ECS Processing Architecture",
+        "architecture_id": "datasync_triggered_ecs_processing_architecture-2",
+        "ref_workplan_id": "wp_02_reliability_first_secure_global",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture uses AWS DataSync to trigger an Amazon ECS service for consolidated compute and integration tasks, handling file processing and business logic within a containerized environment.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ecs-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "Data Sync and Processing Architecture",
+        "architecture_id": "data-sync-and-processing-architecture-3",
+        "ref_workplan_id": "wp_03_performance_dr_hybrid",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture describes a system where AWS DataSync monitors a folder and transfers data to an Amazon EC2 instance for consolidated processing and parsing.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonEC2",
+          "component_id": "ec2-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "datasync-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-datasync-1-ec2-1",
+          "ref_source_component_id": "datasync-1",
+          "ref_target_component_id": "ec2-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "ECS and DataSync File Processing Architecture",
+        "architecture_id": "ecs_and_datasync_file_processing_architecture-4",
+        "ref_workplan_id": "wp_04_resilience_focused_foundation",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture uses AWS DataSync to detect file changes and trigger a file processing service running on Amazon ECS. Amazon ECS is used to run the consolidated compute and integration logic as a containerized application.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ecs-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "Lambda to ECS Processing Architecture",
+        "architecture_id": "lambda-to-ecs-processing-architecture-5",
+        "ref_workplan_id": "wp_05_devops_centric_global_scaling",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture uses AWS Lambda to trigger and parse data, which is then sent to Amazon ECS for computation and extraction processing.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1"
+          ]
+        },
+        {
+          "component_type": "AWSLambda",
+          "component_id": "lambda-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1",
+            "integration_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-lambda-1-ecs-1",
+          "ref_source_component_id": "lambda-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "ECS Processing from S3 Storage",
+        "architecture_id": "ecs-processing-from-s3-storage-6",
+        "ref_workplan_id": "wp_06_cost_optimized_global_footprint",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture describes a system where files stored in an Amazon S3 bucket trigger a containerized processing task running on Amazon ECS. The ECS service encapsulates both the core file processing logic and integration components.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AmazonS3",
+          "component_id": "s3-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-s3-1-ecs-1",
+          "ref_source_component_id": "s3-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "ECS and Lambda Integration Architecture",
+        "architecture_id": "ecs_and_lambda_integration_architecture-7",
+        "ref_workplan_id": "wp_07_secure_automated_multi_region",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features Amazon ECS for core file processing tasks, orchestrated and triggered by AWS Lambda functions. The Lambda functions handle event-driven triggers and parsing logic, initiating workflows in the ECS service.",
+        "source": "llm_generated",
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1"
+          ]
+        },
+        {
+          "component_type": "AWSLambda",
+          "component_id": "lambda-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1",
+            "integration_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-lambda-1-ecs-1",
+          "ref_source_component_id": "lambda-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        },
+        {
+          "connection_id": "conn-ecs-1-lambda-1",
+          "ref_source_component_id": "ecs-1",
+          "ref_target_component_id": "lambda-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "File Transfer and Processing Architecture",
+        "architecture_id": "None-8",
+        "ref_workplan_id": "wp_08_pragmatic_dr_and_performance",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture describes a system where files are received via a managed file transfer service, which then triggers a compute instance responsible for processing and parsing the files. The design consolidates the core application logic and parsing libraries onto a single EC2 instance for simplified deployment.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonEC2",
+          "component_id": "ec2-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": "aws",
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSTransfer",
+          "component_id": "transfer-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": "aws",
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-transfer-1-ec2-1",
+          "ref_source_component_id": "transfer-1",
+          "ref_target_component_id": "ec2-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": "Triggers processing"
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "DataSync-Triggered EC2 Processing Architecture",
+        "architecture_id": "datasynctriggeredec2processingarchitecture-9",
+        "ref_workplan_id": "wp_09_aggressive_cost_reduction",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture outlines a data processing workflow where AWS DataSync triggers data transfers. An Amazon EC2 instance processes the data, and AWS Systems Manager is used for managing the processing environment or its dependencies.",
+        "source": "llm_generated",
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonEC2",
+          "component_id": "ec2-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        },
+        {
+          "component_type": "AWSSystemsManager",
+          "component_id": "ssm-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "integration_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ec2-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ec2-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        },
+        {
+          "connection_id": "conn-ec2-1-ssm-1",
+          "ref_source_component_id": "ec2-1",
+          "ref_target_component_id": "ssm-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "ECS-Based Architecture with Storage Gateway",
+        "architecture_id": "ecs_architecture_with_storage_gateway-10",
+        "ref_workplan_id": "wp_10_foundational_reliability_and_automation",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features AWS Storage Gateway triggering an Amazon ECS container service. The ECS service is responsible for compute and integration tasks, demonstrating a containerized approach to workload management initiated by file-based events.",
+        "source": "llm_generated",
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSStorageGateway",
+          "component_id": "sgw-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-sgw-1-ecs-1",
+          "ref_source_component_id": "sgw-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "EKS-based Microservices with Lambda Trigger",
+        "architecture_id": "eks-microservices-lambda-trigger-11",
+        "ref_workplan_id": "wp_11_scalability_first_microservices_transition",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features AWS Lambda for triggering events and an Amazon EKS cluster for running containerized microservices. The Lambda function initiates processing by passing data or events to the services hosted on EKS, facilitating a decoupled, event-driven microservices pattern.",
+        "source": null,
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonEKS",
+          "component_id": "aeks-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSLambda",
+          "component_id": "lambda-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-lambda-1-aeks-1",
+          "ref_source_component_id": "lambda-1",
+          "ref_target_component_id": "aeks-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "ECS Processing with DataSync Trigger",
+        "architecture_id": "ecs-processing-with-datasync-trigger-12",
+        "ref_workplan_id": "wp_12_cost_driven_decoupling_and_dr",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features AWS DataSync triggering a containerized processing workload on Amazon ECS. The ECS service is responsible for both core file processing and parsing, consolidating multiple stages of a computational task into a single, scalable service.",
+        "source": "llm_generated",
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ecs-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "EKS-Based Processing with Direct Connect",
+        "architecture_id": "eks-based-processing-with-direct-connect-13",
+        "ref_workplan_id": "wp_13_ultimate_resilience_and_scalability",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features containerized processing using Amazon EKS, which consolidates compute and integration tasks. It receives data from an on-premises source via AWS Direct Connect, ensuring a dedicated and high-throughput network connection.",
+        "source": null,
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonEKS",
+          "component_id": "eks-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDirectConnect",
+          "component_id": "dc-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-dc-1-eks-1",
+          "ref_source_component_id": "dc-1",
+          "ref_target_component_id": "eks-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "DataSync-Triggered ECS Processing",
+        "architecture_id": "datasynctriggeredecsprocessing-14",
+        "ref_workplan_id": "wp_14_layered_resilience_and_refactoring",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture features AWS DataSync monitoring a data source and triggering a containerized processing task on Amazon ECS upon detecting new data. The ECS task encapsulates the file processing and integration logic.",
+        "source": null,
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ecs-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": "Triggers processing"
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "DataSync-Triggered ECS Processing",
+        "architecture_id": "datasync-triggered-ecs-processing-15",
+        "ref_workplan_id": "wp_15_automation_first_for_global_resilience",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture uses AWS DataSync to trigger processing tasks on an Amazon ECS cluster. DataSync handles data transfer, and upon completion, initiates containerized workloads managed by ECS for tasks like file processing and library parsing.",
+        "source": null,
+        "tags": {}
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1",
+            "integration_1"
+          ]
+        },
+        {
+          "component_type": "AWSDataSync",
+          "component_id": "ds-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ds-1-ecs-1",
+          "ref_source_component_id": "ds-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    },
+    {
+      "metadata": {
+        "architecture_name": "Event-Driven ECS and Lambda Architecture",
+        "architecture_id": "event-driven-ecs-and-lambda-architecture-16",
+        "ref_workplan_id": "wp_16_pragmatic_modernization_and_resilience",
+        "ref_action_definition_id": null,
+        "parent_architecture_id": null,
+        "description": "This architecture describes an event-driven system where AWS Events triggers an Amazon ECS service for extraction tasks. The ECS service then interacts with an AWS Lambda function which handles parsing libraries.",
+        "source": "llm_generated",
+        "tags": null
+      },
+      "components": [
+        {
+          "component_type": "AmazonECS",
+          "component_id": "ecs-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "compute_1"
+          ]
+        },
+        {
+          "component_type": "AWSEvents",
+          "component_id": "ev-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "network_1"
+          ]
+        },
+        {
+          "component_type": "AWSLambda",
+          "component_id": "lambda-1",
+          "component_groups": null,
+          "component_environments": null,
+          "component_provider": null,
+          "component_resource_config": null,
+          "component_pricing": null,
+          "ref_abs_component_ids": [
+            "integration_1"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connection_id": "conn-ev-1-ecs-1",
+          "ref_source_component_id": "ev-1",
+          "ref_target_component_id": "ecs-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        },
+        {
+          "connection_id": "conn-ecs-1-lambda-1",
+          "ref_source_component_id": "ecs-1",
+          "ref_target_component_id": "lambda-1",
+          "bidirectional": false,
+          "connection_type": null,
+          "label": null
+        }
+      ]
+    }
+  ]
+}
